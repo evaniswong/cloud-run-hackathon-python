@@ -34,10 +34,10 @@ def move():
     r='s'
     if t is 1:
         t=t-1
-        r='T'
+        r='1'
     d = 0
     if d==1:
-        r='R'
+        r='3'
     gozero = 0
     r = request.get_data()
     ourh = 'https://da-cloud-run-hackathon-python-vdqrirch4a-uc.a.run.app'
@@ -49,22 +49,22 @@ def move():
         if request.json['arena']['state'][ourh].get('x') is not 0:
             if request.json['arena']['state'][ourh].get('direction') is not 'S':
                 t=t+1
-                r= 'L'
+                r= '2'
         elif request.json['arena']['state'][ourh].get('y') is not 0:
             if request.json['arena']['state'][ourh].get('direction') is not 'W':
                 t=t+1
-                r= 'L'
+                r= '2'
         else:
             t=t+1
-            r= 'F'
+            r= '0'
     if gozero == 1:
         if request.json['arena']['state'][ourh].get('direction') is not 'N':
             t=t+1
-            r= 'L'
+            r= '2'
         else:
             t=t+1
             d=d+1
-            r= 'F'
+            r= '0'
             
     return moves[r]
             
