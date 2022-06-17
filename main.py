@@ -33,7 +33,7 @@ def move():
     r = request.get_data().json
     ourh = 'https://da-cloud-run-hackathon-python-vdqrirch4a-uc.a.run.app'
     #logger.info(request.json)
-    logger.info(r['arena']['state'][ourh])
+    logger.info(r['arena']['state'])
     return moves[random.randrange(len(moves))]
 
 if __name__ == "__main__":
