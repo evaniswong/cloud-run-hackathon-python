@@ -35,6 +35,9 @@ def move():
     if t is 1:
         t=t-1
         return 'T'
+    d = 0
+    if d==1:
+        return 'R'
     gozero = 0
     r = request.get_data()
     ourh = 'https://da-cloud-run-hackathon-python-vdqrirch4a-uc.a.run.app'
@@ -60,7 +63,9 @@ def move():
             r= 'L'
         else:
             t=t+1
+            d=d+1
             r= 'F'
+            
     return r
             
              
