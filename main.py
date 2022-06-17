@@ -30,7 +30,7 @@ def index():
 
 @app.route("/", methods=['POST'])
 def move():
-    t=1
+    t=0
     if t=1:
         t=t-1
         return 'T'
