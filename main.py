@@ -31,6 +31,7 @@ def index():
 @app.route("/", methods=['POST'])
 def move():
     t=0
+    r='s'
     if t is 1:
         t=t-1
         return 'T'
@@ -41,25 +42,26 @@ def move():
     logger.info(request.json['arena']['state'][ourh])
     if request.json['arena']['state'][ourh].get('x') is 0 and request.json['arena']['state'][ourh].get('x') is 0:
         gozero = 1
-    if gozero=0:    
+    if gozero==0:    
         if request.json['arena']['state'][ourh].get('x') is not 0:
             if request.json['arena']['state'][ourh].get('direction') is not 'S':
                 t=t+1
-                return 'L'
-        else if  request.json['arena']['state'][ourh].get('y') is not 0:
+                r= 'L'
+        elif request.json['arena']['state'][ourh].get('y') is not 0:
             if request.json['arena']['state'][ourh].get('direction') is not 'W':
                 t=t+1
-                return 'L'
+                r= 'L'
         else:
             t=t+1
-            return 'F'
-     if gozero = 1:
+            r= 'F'
+    if gozero == 1:
         if request.json['arena']['state'][ourh].get('direction') is not 'N':
             t=t+1
-            return 'L'
+            r= 'L'
         else:
             t=t+1
-            return 'F'
+            r= 'F'
+    return r
             
              
         
