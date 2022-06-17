@@ -40,9 +40,6 @@ def move():
     else if  request.json['arena']['state'][ourh].get('y') is not 0:
         if request.json['arena']['state'][ourh].get('direction') is not 'W':
             return moves['L']
-        
-    else if request.json['arena']['state'][ourh].get('direction') is not 'N':
-        return moves['R']
     else:
         return moves['T']
         
