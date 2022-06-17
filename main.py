@@ -30,10 +30,10 @@ def index():
 
 @app.route("/", methods=['POST'])
 def move():
-    r = request.get_data().json
+    r = request.get_data()
     ourh = 'https://da-cloud-run-hackathon-python-vdqrirch4a-uc.a.run.app'
     #logger.info(request.json)
-    logger.info(r['arena']['state'])
+    logger.info(request.json['arena']['state'][ourh])
     return moves[random.randrange(len(moves))]
 
 if __name__ == "__main__":
