@@ -30,18 +30,38 @@ def index():
 
 @app.route("/", methods=['POST'])
 def move():
+    t=1
+    if t=1:
+        t=t-1
+        return 'T'
+    gozero = 0
     r = request.get_data()
     ourh = 'https://da-cloud-run-hackathon-python-vdqrirch4a-uc.a.run.app'
     #logger.info(request.json)
     logger.info(request.json['arena']['state'][ourh])
-    if request.json['arena']['state'][ourh].get('x') is not 0:
-        if request.json['arena']['state'][ourh].get('direction') is not 'S':
-            return moves['L']
-    else if  request.json['arena']['state'][ourh].get('y') is not 0:
-        if request.json['arena']['state'][ourh].get('direction') is not 'W':
-            return moves['L']
-    else:
-        return moves['F']
+    if request.json['arena']['state'][ourh].get('x') is 0 and request.json['arena']['state'][ourh].get('x') is 0:
+        gozero = 1
+    if gozero=0:    
+        if request.json['arena']['state'][ourh].get('x') is not 0:
+            if request.json['arena']['state'][ourh].get('direction') is not 'S':
+                t=t+1
+                return 'L'
+        else if  request.json['arena']['state'][ourh].get('y') is not 0:
+            if request.json['arena']['state'][ourh].get('direction') is not 'W':
+                t=t+1
+                return 'L'
+        else:
+            t=t+1
+            return 'F'
+     if gozero = 1:
+        if request.json['arena']['state'][ourh].get('direction') is not 'N':
+            t=t+1
+            return 'L'
+        else:
+            t=t+1
+            return 'F'
+            
+             
         
 
 if __name__ == "__main__":
