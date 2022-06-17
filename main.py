@@ -34,7 +34,18 @@ def move():
     ourh = 'https://da-cloud-run-hackathon-python-vdqrirch4a-uc.a.run.app'
     #logger.info(request.json)
     logger.info(request.json['arena']['state'][ourh])
-    return moves[random.randrange(len(moves))]
+    if request.json['arena']['state'][ourh].get('x') is not 0:
+        if request.json['arena']['state'][ourh].get('direction') is not 'S':
+            return moves['L']
+    else if  request.json['arena']['state'][ourh].get('y') is not 0:
+        if request.json['arena']['state'][ourh].get('direction') is not 'W':
+            return moves['L']
+        
+    else if request.json['arena']['state'][ourh].get('direction') is not 'N':
+        return moves['R']
+    else:
+        return moves['T']
+        
 
 if __name__ == "__main__":
   app.run(debug=False,host='0.0.0.0',port=int(os.environ.get('PORT', 8080)))
