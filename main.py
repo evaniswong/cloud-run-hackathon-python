@@ -41,7 +41,7 @@ def move():
         if request.json['arena']['state'][ourh].get('direction') is not 'W':
             return moves['L']
     else:
-        return moves['T']
+        return moves['F']
         
 
 if __name__ == "__main__":
